@@ -9,10 +9,10 @@ The calibration is a conversation, not an exam.
 
 ## Instructions for the Agent
 
-1. Explain briefly: "I'm going to walk through a few scenarios to understand how you naturally think. There are no right answers — I'm mapping your thinking style, not testing knowledge."
-2. Present 3 scenarios (choose from the pool below based on the user's domain/interests)
-3. For each scenario, let the user respond freely, then ask 1–2 follow-up probes
-4. After all scenarios, score each dimension based on observed patterns
+1. Explain briefly: "I'll give you one scenario to understand how you naturally think. No right answers — I'm mapping your thinking style, not testing knowledge."
+2. Present 1 scenario (choose from the pool below based on the user's domain/interests)
+3. Let the user respond freely, then ask 1–2 follow-up probes
+4. Score each dimension based on observed patterns
 5. Show the initial radar, explain it, and ask if it feels accurate
 6. Save to `data/profile.json`
 
