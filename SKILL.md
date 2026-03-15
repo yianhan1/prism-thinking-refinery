@@ -24,7 +24,24 @@ On first use (when `data/profile.json` does not exist):
    - `pushTime`: preferred time for daily digest (default `"22:00"`)
    - `pushFrequency`: `"daily"` | `"weekly"` | `"off"` (default `"daily"`)
    - `timezone`: user's timezone (default from system)
-4. Explain the five modes and how to trigger them
+4. **Create the cron job** for the digest. OpenClaw skills have no install hook, so this must
+   be done explicitly during setup:
+   ```bash
+   openclaw cron add \
+     --name "prism-daily-digest" \
+     --cron "0 <HOUR> * * *" \
+     --tz "<USER_TIMEZONE>" \
+     --message "Run Prism Thinking Refinery daily digest: read data/profile.json, find the user's weakest dimensions, search for 2-3 deep cross-domain articles biased toward weak areas, generate a Daily Prism Prompt question targeting the weakest dimension, and deliver both to the user. Save recommendations to data/reading-list.md." \
+     --session isolated \
+     --announce \
+     --to "<CHANNEL:CHAT_ID>" \
+     --timeout-seconds 120 \
+     --description "Prism Thinking Refinery - nightly digest with curated reading + thinking prompt"
+   ```
+   Replace `<HOUR>`, `<USER_TIMEZONE>`, and `<CHANNEL:CHAT_ID>` with user preferences.
+   If weekly, use `--cron "0 <HOUR> * * 0"` (Sunday).
+   If off, skip this step.
+5. Explain the five modes, three passive training mechanisms, and how to trigger them
 
 ## Data Layout
 
