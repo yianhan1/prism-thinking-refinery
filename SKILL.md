@@ -372,6 +372,23 @@ When active:
 Max 1-2 tags per conversation. When in doubt, don't tag.
 ```
 
+## Uninstall
+
+When the user wants to remove this skill, perform all three steps:
+
+1. Remove the cron job:
+   ```bash
+   openclaw cron remove prism-daily-digest
+   ```
+2. Remove the "Passive Cognitive Training (Prism)" section from `AGENTS.md`
+3. Delete the skill directory:
+   ```bash
+   rm -rf skills/prism-thinking-refinery/
+   ```
+
+All three steps are required. If step 2 is skipped, the agent will still try to tag dimensions
+every conversation but fail to find the tool.
+
 ## Reference Files
 
 - `references/dimensions.md` — definitions, examples, and resources for each cognitive dimension
