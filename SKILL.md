@@ -149,8 +149,11 @@ The tool handles:
 
 User provides a topic or question. Analyze it through 3–5 frameworks, prioritizing:
 
-- **Weak dimensions** (lowest radar scores) — to stretch the user
-- **Relevant dimensions** — that genuinely illuminate the topic
+- **1–2 from weak dimensions** (lowest radar scores) — to stretch the user
+- **1–2 from relevant dimensions** — that genuinely illuminate the topic, even if mid-range
+- **Occasionally 1 from a strong dimension** — at advanced difficulty, to prevent plateau
+- Vary the domain of application: if the user's weak spot is inverse_thinking, don't always
+  apply it to the same type of problem. Rotate across business, personal, historical, technical contexts.
 
 For each framework:
 1. Name the framework and the dimension it exercises
@@ -193,8 +196,11 @@ Update radar after each sparring session using the tool (±0.1 to ±0.5 per dime
 
 Search for and recommend 2–3 pieces of deep content (articles, papers, talks, books):
 
-- Bias toward the user's **weak dimensions** for growth
+- **Max 1 piece per dimension** — even if the user has one clear weakest area, spread across
+  different weak or mid-range dimensions
 - Include 1 piece from an **unexpected domain** (cross-domain exercise)
+- Vary the application domain: same dimension, different context each time
+- When a weak dimension has improved to within 0.5 of the next weakest, shift focus to the new weakest
 - For each recommendation: title, source, 2-sentence summary, and
   "Why this matters for you" tied to their radar profile
 
@@ -305,7 +311,10 @@ Rules:
 
 Include in the daily/weekly digest (alongside Curated Feed):
 
-- One 30-second thinking question tied to the user's **weakest dimension**
+- One 30-second thinking question targeting a dimension that needs attention — rotate across
+  weak and mid-range dimensions, don't always pick the single weakest
+- Vary the context: if targeting inverse_thinking, use customer relationships one day,
+  product strategy the next, personal decisions after that
 - The question should be reflective, not requiring research
 - Ideally connected to something the user did or discussed recently
 
@@ -315,7 +324,7 @@ Examples:
 > "上次你類比過去的經驗來做判斷是什麼時候？那個類比有沒有漏洞？" (historical_analogy)
 
 Rules:
-- Rotate dimensions, biased toward weak ones
+- Rotate dimensions, biased toward weak ones but not exclusively — cover different dimensions across days
 - Keep questions in the user's preferred language
 - Don't expect or require a response — the value is in the thinking, not the answer
 - If the user does respond, log it and update radar using the tool
