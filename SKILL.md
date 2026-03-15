@@ -37,7 +37,7 @@ On first use (when `data/profile.json` does not exist):
      --name "prism-daily-digest" \
      --cron "0 <HOUR> * * *" \
      --tz "<USER_TIMEZONE>" \
-     --message "Run Prism daily digest. Steps: (1) Run: node skills/prism-thinking-refinery/tools/prism-update.mjs --show to see current radar. (2) Identify the 2 weakest dimensions. (3) Web search for 2-3 deep articles biased toward those weak dimensions, include 1 cross-domain piece. (4) Generate a Daily Prism Prompt question targeting the weakest dimension in the user's language. (5) Deliver the articles and prompt to the user. (6) Append recommendations to skills/prism-thinking-refinery/data/reading-list.md using the format in that file." \
+     --message "Run Prism daily digest. Steps: (1) Run: node skills/prism-thinking-refinery/tools/prism-update.mjs --show to see current radar. (2) Read skills/prism-thinking-refinery/data/reading-list.md (last 7 days) to see what was already recommended — do not repeat those. (3) Pick 2-3 dimensions to focus on: prioritize weak ones but rotate — max 1 article per dimension, and vary the application domain each day. If a weak dimension has recently improved close to the next weakest, shift focus. (4) Web search for 2-3 deep articles targeting those dimensions, include 1 cross-domain piece. Avoid duplicating titles or URLs from step 2. (5) Generate a Daily Prism Prompt question — rotate across weak and mid-range dimensions, vary the context (business, personal, historical, technical). Use the user's language. (6) Deliver to the user. (7) Append to skills/prism-thinking-refinery/data/reading-list.md using the format in that file." \
      --session isolated \
      --announce \
      --to "<CHANNEL:CHAT_ID>" \
