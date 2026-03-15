@@ -1,6 +1,6 @@
 # 🔺 Prism Thinking Refinery
 
-**一個為 OpenClaw 打造的自適應認知訓練技能。**
+**一個為 OpenClaw 用戶打造的提升個人認知思維的技能。**
 
 ## 為什麼
 
