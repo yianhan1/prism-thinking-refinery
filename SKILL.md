@@ -48,7 +48,26 @@ On first use (when `data/profile.json` does not exist):
    If weekly, use `--cron "0 <HOUR> * * 0"` (Sunday).
    If off, skip this step.
 
-5. Explain the five modes, three passive training mechanisms, and how to trigger them
+5. Explain the five modes, three passive training mechanisms, and how to trigger them.
+   Use this welcome message as a template:
+
+   ```
+   🔺 Prism Thinking Refinery 已啟用！
+
+   你可以隨時用這些指令：
+
+   🔺 「prism analysis + 主題」 — 多角度分析
+   🥊 「challenge my thinking + 觀點」 — 思辨對練
+   📚 「what should I read」 — 推薦閱讀
+   📓 「record my prediction + 預測」 — 記錄預測
+   ✍️ 「refine my thinking + 想法」 — 寫作精煉
+   📊 「show my radar」 — 查看思維雷達圖
+
+   日常對話中如果你在分析問題，我會偶爾標註你用到的思維維度。
+   每天 22:00 會推送一則思考題 + 精選文章。
+   ```
+
+   Adapt the language to the user's preference. Keep it short.
 
 6. **Remind the user** to add the passive training snippet to their `AGENTS.md` — see
    the "Passive Training — Integration" section below.
