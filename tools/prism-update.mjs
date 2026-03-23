@@ -41,7 +41,8 @@ const DEFAULT_PROFILE = {
 const DEFAULT_CONFIG = {
   pushTime: "22:00",
   pushFrequency: "daily",
-  timezone: Intl.DateTimeFormat().resolvedOptions().timeZone || "UTC"
+  timezone: Intl.DateTimeFormat().resolvedOptions().timeZone || "UTC",
+  language: "en"
 };
 
 function clamp(val, min = 1.0, max = 10.0) {

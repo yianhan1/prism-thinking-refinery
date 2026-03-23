@@ -30,6 +30,7 @@ On first use (when `data/profile.json` does not exist):
    - `pushTime`: preferred time for daily digest (default `"22:00"`)
    - `pushFrequency`: `"daily"` | `"weekly"` | `"off"` (default `"daily"`)
    - `timezone`: user's timezone (default from system)
+   - `language`: `"en"` | `"zh-TW"` (default `"en"`) — controls digest language
 
 4. **Create the cron job** for the digest:
    ```bash
@@ -37,7 +38,23 @@ On first use (when `data/profile.json` does not exist):
      --name "prism-daily-digest" \
      --cron "0 <HOUR> * * *" \
      --tz "<USER_TIMEZONE>" \
-     --message "Run Prism daily digest. Steps: (1) Run: node skills/prism-thinking-refinery/tools/prism-update.mjs --show to see current radar. (2) Read skills/prism-thinking-refinery/data/reading-list.md (last 7 days) to see what was already recommended — do not repeat those. (3) Pick 2-3 dimensions to focus on: prioritize weak ones but rotate — max 1 article per dimension, and vary the application domain each day. If a weak dimension has recently improved close to the next weakest, shift focus. (4) Use web_search (NOT web_fetch) to find 2-3 deep articles targeting those dimensions, include 1 cross-domain piece. Avoid duplicating titles or URLs from step 2. Do NOT use web_fetch — many sites block it with Cloudflare. (5) Generate a Daily Prism Prompt question — rotate across weak and mid-range dimensions, vary the context (business, personal, historical, technical). Use the user's language. (6) 用一則完整訊息整合送出：包含 Radar 現況、所有推薦文章（標題、連結、摘要、對應維度）、以及 Daily Prism Prompt。不要分段回覆，全部放在同一則訊息裡。重要：直接回覆即可，不要自己呼叫 message tool 送訊息，cron announce 機制會自動送到 Telegram。 (7) Append to skills/prism-thinking-refinery/data/reading-list.md using the format in that file." \
+     --message "Run Prism daily digest using the pre-built script.
+
+Step 1: Run the context generator:
+  node skills/prism-thinking-refinery/tools/generate-digest.mjs > /tmp/digest-context.json
+Then read /tmp/digest-context.json.
+
+Step 2: The JSON contains radar (use radar.text), focus dimensions, dedup lists (recentUrls/recentTitles to avoid), search suggestions, and output template.
+
+Step 3: Use web_search to find 2-3 deep articles matching focus.dimensions. Use searchSuggestions as starting queries. Include 1 cross-domain piece. Verify URLs are NOT in dedup lists.
+
+Step 4: Write a Daily Prism Prompt in the language specified by promptGuidance.language, targeting promptGuidance.targetDimensions. Make it thought-provoking, tied to the user's domain context.
+
+Step 5: Compose ONE complete message: radar + focus reasoning (1 sentence) + all articles (title, URL, dimension emoji, 2-3 sentence summary, relevance) + Daily Prism Prompt.
+
+IMPORTANT: Your final reply IS the content delivered to the user. Do not call message tool. Do not split into multiple replies. Do not reply with just done. Compose the full digest as your reply.
+
+Step 6: Append articles to skills/prism-thinking-refinery/data/reading-list.md using appendFormat from the JSON." \
      --session isolated \
      --announce \
      --to "<CHANNEL:CHAT_ID>" \
